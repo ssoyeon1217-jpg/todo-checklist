@@ -7,6 +7,9 @@
 <meta name="theme-color" content="#b2c7d9">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="할 일">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<meta name="format-detection" content="telephone=no">
 <link rel="manifest" href="manifest.webmanifest">
 <link rel="icon" href="icon-192.png">
 <link rel="apple-touch-icon" href="icon-192.png">
@@ -248,6 +251,63 @@ dialog p{margin:0 0 12px;color:var(--soft);font-size:.88rem}
 .rm-detail ul{max-height:190px}
 .rm-ln{padding:2px 0;overflow:hidden}
 .rm-detail li small{display:block;color:var(--soft);font-size:.75rem}
+
+/* ---------- 폰 최적화 [mobile] ---------- */
+html{-webkit-text-size-adjust:100%;text-size-adjust:100%}
+body{overscroll-behavior-y:none}
+dialog{max-height:85vh;max-height:85dvh;overscroll-behavior:contain;overflow-y:auto}
+#rmDlg{max-height:92vh;max-height:92dvh}
+.rm-body{overscroll-behavior:contain}
+.chips{scrollbar-width:none;scroll-snap-type:x proximity}
+.chips::-webkit-scrollbar{display:none}
+@media (max-width:600px){
+  .wrap{padding:14px 14px calc(70px + env(safe-area-inset-bottom,0px))}
+  header h1{font-size:1.2rem}
+  .nav{width:44px;height:44px}
+  .sub{gap:6px}
+  .pill{min-height:44px;padding:0 14px;display:inline-flex;align-items:center}
+  .progress{flex-wrap:wrap;row-gap:2px}
+  .progress .bar{order:3;flex:1 1 100%}
+  .sync{min-height:44px;margin-left:auto;display:inline-flex;align-items:center}
+  .chips{gap:5px}
+  .chip{min-height:44px;padding:0 11px;font-size:.84rem;gap:5px;scroll-snap-align:start}
+  .addrow input{min-height:46px;padding:0 12px}
+  .addrow button{min-height:46px;padding:0 18px}
+  .cb::before{inset:-11px -10px}
+  .cb.sm::before{inset:-10px -10px}
+  .mk::before{inset:-10px -9px}
+  .txt{padding:9px 2px}
+  .subs .txt{padding:7px 2px}
+  .grip{width:34px;height:40px}
+  .sgrip{width:30px;height:40px}
+  .bring{min-height:40px;padding:0 14px}
+  .btn{min-height:44px;padding:0 18px}
+  .ed-in{min-height:46px}
+  .ed-bar select,.ed-bar button{min-height:44px}
+  .ed-sub input{min-height:40px}
+  .ed-sub button{width:40px;min-height:40px}
+  .ed-sub select{width:64px;min-height:40px}
+  .r-top input,.r-top select{min-height:42px}
+  .r-top .rm{width:40px;height:40px}
+  .days button{width:calc((100% - 24px)/7);height:auto;aspect-ratio:1;max-height:44px}
+  .r-item{padding:8px;grid-template-columns:minmax(0,1fr)}
+  .r-top select{flex:0 1 38%;min-width:0}
+  .days button{display:grid;place-content:center;padding:0}
+  .rm-tabs button{min-height:40px}
+  .rm-x{width:44px;height:44px}
+  .mhead .nav{width:44px;height:44px}
+  .mcell{min-height:50px}
+  .diagfoot button{min-height:44px}
+  /* iOS는 글자가 16px 미만인 입력칸을 누르면 화면을 확대해 버림 */
+  input:not([type=checkbox]):not([type=radio]):not([type=file]),select,textarea{font-size:16px}
+}
+@media (max-width:360px){
+  .chip{padding:0 9px;font-size:.8rem}
+  .pill{padding:0 11px;font-size:.82rem}
+}
+@media (orientation:landscape) and (max-height:480px){
+  dialog{max-height:94vh;max-height:94dvh}
+}
 </style>
 </head>
 <body>

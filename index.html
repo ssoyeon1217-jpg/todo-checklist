@@ -308,6 +308,12 @@ dialog{max-height:85vh;max-height:85dvh;overscroll-behavior:contain;overflow-y:a
 @media (orientation:landscape) and (max-height:480px){
   dialog{max-height:94vh;max-height:94dvh}
 }
+/* 휴대폰이 '데스크톱 사이트' 모드일 때(터치 화면인데 폭이 넓게 잡힘) 크게 보이도록 확대 */
+@media (pointer:coarse) and (min-width:900px){
+  .wrap{zoom:1.75;max-width:560px}
+  dialog{zoom:1.6}
+  .toast,.snack{zoom:1.6}
+}
 </style>
 </head>
 <body>
